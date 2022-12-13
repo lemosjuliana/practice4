@@ -10,51 +10,54 @@ namespace Practice1
     /// </summary> 
     public class Video
     {
-        public string _title;
-        public string _author;
-        public int _length = 0;
-        public List<string> _comments;
+        private string _title;
+        private string _author;
+        private int _length;
+        private List<Comment> _comments;
         
 
         /// <summary>
-        /// Constructs a new instance of Die.
+        /// Constructs a new instance of Video.
         /// </summary>
-        public Video()
+        public Video(string title, string author, int length)
         {
-            Video video = new Video();
+            _title = title;
+            _author = author;
+            _length = length;
+            _comments = new List<Comment>();
         }
 
         /// <summary>
         /// Generates a new random value and calculates the points for the die.
         /// </summary>
-        public void CreateVideo()
+        public string GetTitle()
         {
-           //
+           return _title;
         }
-         public string SetValue()
+         public string GetAuthor()
         {
-            //
-        }
-
-           public string AddCommment()
-        {
-            //
+            return _author;
         }
 
-           public string NumberComment()
+         public int GetLength()
         {
-            //
-        }
-           public string DisplayTitle()
-        {
-            //
-        }
-            public string DisplayAuthor()
-        {
-            //
+            return _length;
         }
 
-        
+           public void AddCommment(Comment comment)
+        {
+            _comments.Add(comment);
+        }
+
+           public int GetNumberOfComment()
+        {
+            return _comments.Count;
+        }
+
+           public List<Comment> GetComments()
+        {
+            return _comments;
+        }
 
     }
 }

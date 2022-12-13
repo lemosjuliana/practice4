@@ -14,19 +14,20 @@ namespace Practice1
         private string _textComment;
 
         /// <summary>
-        /// Constructs a new instance of Commment
+        /// Constructs a new instance of Comment with thespecified parameters
         /// </summary>
-        public Comment()
+        public Comment(string nameComment, string textComment)
         {
-            
+            _nameComment = nameComment;
+            _textComment = textComment;
         }
            public string GetNameComment()
         {
-            //
+            return _nameComment;
         }
           public string GetTextComment()
         {
-            //
+            return _textComment;
         }
 
     }
