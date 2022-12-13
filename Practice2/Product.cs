@@ -3,42 +3,53 @@ namespace Practice2
     public class Product
     {
         private string _name;
-        private string _productId;
-        private double _priceProduct;
-        private int _quantityProduct;
+        private string _id;
+        private double _totalPrice;
+        private int _quantity;
 
-        public Product(string name, string productId, double priceProduct, int quantityProduct)
-    {
-        _name = name;
-        _productId = productId;
-        _priceProduct = priceProduct;
-        _quantityProduct = quantityProduct;
-    }
+        public Product(string name, string id, double price, int quantity)
+        {
+            // Sanity check...
+            if (quantity < 1)
+            {
+                throw new InvalidDataException("There is no such thing as quantity equals ZERO.");
+            }
+            _name = name;
+            _id = id;
+            _quantity = quantity;
+            _totalPrice = price * quantity;
 
-     public string GetName()
-    {
-        return _name;
-    }
+        }
 
-    public string GetProductId()
-    {
-        return _productId;
-    }
+        public string GetName()
+        {
+            return _name;
+        }
 
-     public double GetPriceProduct()
-    {
-        return _priceProduct;
-    }
+        public string GetId()
+        {
+            return _id;
+        }
 
-     public int GetQuantityProduct()
-    {
-        return _quantityProduct;
-    }
+        public double GetTotalPrice()
+        {
+            return _totalPrice;
+        }
 
-     public string GetProductDetails()
-    {
-        return $"Name: {_name}; ID: {_productId}; Price: {_priceProduct}; Quantity: {_quantityProduct}.";
-    }
+        public double GetUnitPrice()
+        {
+            return _totalPrice / _quantity;
+        }
+
+        public int GetQuantity()
+        {
+            return _quantity;
+        }
+
+        public string GetDetails()
+        {
+            return $"Name: {_name}; ID: {_id}; Price: {_totalPrice}; Quantity: {_quantity}.";
+        }
 
     }
 }

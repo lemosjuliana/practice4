@@ -1,32 +1,25 @@
 using System;
+
 namespace Practice2
 {
-    public class Customer 
+    public class Customer
     {
-        private string _customerName;
-        private string _customerCountry;
+        private string _name;
+        private Address _address;
 
-        public Customer
+        public Customer(string name, Address address)
         {
-
-        }
-
-        public void SetCustumerCountry(string country)
-        {
-            _customerCountry = country;
-
+            _name = name;
+            _address = address;
         }
 
         public bool IsLocationUsa()
         {
-            if (_customerCountry == "United States")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _address.IsLocationUsa();
         }
+
+        public string Name { get { return _name; } }
+
+        public Address Address { get { return _address; } }
     }
 }

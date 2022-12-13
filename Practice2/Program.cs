@@ -8,77 +8,27 @@ namespace Practice2
         {
             List<Order> orders = new List<Order>();
 
-            //Customer
-            Address peter = new Address();
-            peter.setAddress("221 B Baker Street", "London", "UK", "England");
-
-            Address lucy = new Address();
-            lucy.setAddress("555 Main Street", "Miami", "Florida", "USA");
-
-            
-            //  Order
-            Product usaOrder = new Product();
-            usaOrder.name("USA Order");
-            usaOrder.priceProduct(5.00);
-            usaOrder.productId("usa");
-            usaOrder.quantityProduct(1);
-
-            Product internationalOrder = new Product();
-            internationalOrder.name("International Order");
-            internationalOrder.priceProduct(5.00);
-            internationalOrder.productId("int");
-            internationalOrder.quantityProduct(1);
-
+            // Customers
+            Customer peter = new Customer("Peter", new Address("221 B Baker Street", "London", "UK", "England"));
+            Customer lucy = new Customer("Lucy", new Address("555 Main Street", "Miami", "Florida", "USA"));
 
             // Products
-            Product mirror = new Product();
-            mirror.name("mirror");
-            mirror.priceProduct(20.00);
-            mirror.productId("mir001");
-            mirror.quantityProduct(1);
-            
-            Product chair = new Product();
-            chair.name("chair");
-            chair.priceProduct(80.00);
-            chair.productId("cha002");
-            chair.quantityProduct(4);
-
-            Product pillow = new Product();
-            pillow.name("pillow");
-            pillow.priceProduct(20.00);
-            pillow.productId("pil003");
-            pillow.quantityProduct(1);
-            
-            Product headphones = new Product();
-            headphones.name("headphones");
-            headphones.priceProduct(20.00);
-            headphones.productId("hea004");
-            headphones.quantityProduct(1);
-
+            Product mirror = new Product("mirror", "mir001", 20.00, 1);
+            Product chair = new Product("chair", "cha002", 80.00, 4);
+            Product pillow = new Product("pillow", "pil003", 10.00, 1);
+            Product headphones = new Product("headphones", "hea004", 40.00, 2);
 
             // Orders
-            Order order1 = new Order(); 
-            order1.SetOrderNumber(001);           
-            order1.SetCustomerName("Peter");
-            order1.SetAddressOrder(peter);
-           
-            order1.AddOrder(mirror);
-            order1.AddOrder(chair);
-
-            Order order2 = new Order(); 
-            order2.SetOrderNumber(002);           
-            order2.SetCustomerName("Lucy");
-            order2.SetAddressOrder(lucy);
-           
-            order2.AddOrder(pillow);
-            order2.AddOrder(headphones);                      
+            Order order1 = new Order(peter, new Address("221 B Baker Street", "London", "UK", "England")); 
+            order1.AddProduct(mirror);           
+            order1.AddProduct(chair);                     
 
             orderList.Add(order1);
             orderList.Add(order2);
 
-            foreach (Order order in orderList)
+            foreach (Order order in orders)
             {
-                Address orderAddress = order.GetOrderAddress();
+                Address orderAddress = order.Address();
                 if (orderAddress.USA() == true)
                 {
                     order.AddOrder(usaOrder);
@@ -95,14 +45,6 @@ namespace Practice2
                 string thisShippingLabel = order.ShippingLabel();
                 Console.WriteLine(thisShippingLabel);
                 Console.WriteLine();
-
-
-
-          
-
-
-            
-
 
         }
     }
