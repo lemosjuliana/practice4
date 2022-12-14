@@ -4,9 +4,9 @@ using System;
 namespace Practice1
 {
     /// <summary>
-    /// A small cube with a different number of spots on each of its six sides.
+    /// A visual display.
     /// 
-    /// The responsibility of Die is to keep track of the title, author, and length (in seconds) of the video. 
+    /// The responsibility of Video is to keep track of the title, author, and length (in seconds) of the video. 
     /// </summary> 
     public class Video
     {
@@ -14,7 +14,7 @@ namespace Practice1
         private string _author;
         private int _length;
         private List<Comment> _comments;
-        
+
 
         /// <summary>
         /// Constructs a new instance of Video.
@@ -28,33 +28,53 @@ namespace Practice1
         }
 
         /// <summary>
-        /// Generates a new random value and calculates the points for the die.
+        /// Gets the title of the video.
         /// </summary>
+        /// <returns>A title.</returns>
         public string GetTitle()
         {
-           return _title;
+            return _title;
         }
-         public string GetAuthor()
+
+        /// <summary>
+        /// Gets the author of the video.
+        /// </summary>
+        /// <returns>A author</returns>
+        public string GetAuthor()
         {
             return _author;
         }
 
-         public int GetLength()
+        /// <summary>
+        /// Gets the length of the video.
+        /// </summary>
+        /// <returns>the length.</returns>
+        public int GetLength()
         {
             return _length;
         }
 
-           public void AddComment(Comment comment)
+        /// <summary>
+        /// Adds new comments 
+        /// </summary>
+        /// <param name="comment">The comment made by the viewer.</param>
+        public void AddComment(Comment comment)
         {
             _comments.Add(comment);
         }
-
-           public int GetNumberOfComment()
+        /// <summary>
+        /// Gets the number of comments.
+        /// </summary>
+        /// <returns>the comment's count.</returns>
+        public int GetNumberOfComment()
         {
             return _comments.Count;
         }
-
-           public List<Comment> GetComments()
+        /// <summary>
+        /// Gets comments.
+        /// </summary>
+        /// <returns>the comments</returns>
+        public List<Comment> GetComments()
         {
             return _comments;
         }

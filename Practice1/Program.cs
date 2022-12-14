@@ -1,11 +1,16 @@
 ﻿using System;
 
 namespace Practice1
-{
+{   /// <summary>
+    /// The program's entry point.
+    /// </summary>
     class Program
     {
         static public List<Video> _videos;
-
+        /// <summary>
+        /// Starts the program using the given arguments.
+        /// </summary>
+        /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
             _videos = new List<Video>();
