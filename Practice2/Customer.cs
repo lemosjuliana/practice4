@@ -9,7 +9,7 @@ namespace Practice2
 
         public Customer(string name, Address address)
         {
-            _name = name;
+            _name = name.ToUpper();
             _address = address;
         }
 

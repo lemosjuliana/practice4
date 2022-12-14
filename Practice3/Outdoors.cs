@@ -1,29 +1,40 @@
 using System;
+
 namespace Practice3
 {
-    public class Outdoors: Event
+    public class Outdoors : Event
     {
         private string _weather;
 
         public Outdoors()
         {
-
-        }
-        public string OutdoorsPrint()
-        {
-            return $"{title()} {description()} {date()} {time()} {address()}";
+            SetEventType("OUTDOORS");
         }
 
         public void SetWeather(string weather)
-        {            
+        {
             _weather = weather;
         }
-        public string GetWeather(string weather)
+
+        public string GetWeather()
         {
             return _weather;
         }
-    }
-        
 
-    
+        public void PrintEventDetail(Boolean standard)
+        {
+            if (standard)
+            {
+                PrintStandardDescrition();
+            }
+            else
+            {
+                PrintShortDescription();
+            }
+            Console.WriteLine($"Weather: {_weather}");
+        }
+    }
+
+
+
 }

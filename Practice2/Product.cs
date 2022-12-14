@@ -9,13 +9,13 @@ namespace Practice2
 
         public Product(string name, string id, double price, int quantity)
         {
-            // Sanity check...
+            // Error check
             if (quantity < 1)
             {
-                throw new InvalidDataException("There is no such thing as quantity equals ZERO.");
+                throw new InvalidDataException("Quality can't be equal ZERO.");
             }
-            _name = name;
-            _id = id;
+            _name = name.ToUpper();
+            _id = id.ToUpper();
             _quantity = quantity;
             _totalPrice = price * quantity;
 

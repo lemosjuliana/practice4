@@ -2,7 +2,7 @@ namespace Practice4
 {
     public class Swimming : Activity
     {
-        private int _laps;
+        private float _laps;
         private float _meters;
 
         public Swimming()
@@ -11,12 +11,12 @@ namespace Practice4
         }
         public override float GetDistance()
         {
-            return (GetLaps() * _meter) / 1000;
+            return GetLaps() * _meters / 1000;
         }
 
         public override float GetSpeed()
         {
-            return (GetDistance() / GetMinutes()) * 60;
+            return GetDistance() / GetMinutes() * 60;
         }
         public void SetLaps(float laps)
         {

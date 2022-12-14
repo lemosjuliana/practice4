@@ -1,39 +1,54 @@
 using System;
+using System.Net;
+using System.Text;
+
 namespace Practice3
 {
-    public class Lectures: Event
+    public class Lectures : Event
     {
         private string _speakerName;
-        private int _speakerCapacity;
+        private int _capacity;
 
         public Lectures()
         {
-
-        }
-        public LecturesPrint()
-        {
-            return $"{title()} {description()} {date()} {time()} {address()}";
+            SetEventType("LECTURE");
         }
 
         public void SetSpeaker(string speaker)
-        {            
-            _speakerName = speakerName;
-        }
-        public void SetCapacity(int capacity)
         {
-            _speakerCapacity = speakerCapacity;
+            _speakerName = speaker;
         }
 
-         public string GetSpeaker()
+        public void SetCapacity(int capacity)
+        {
+            _capacity = capacity;
+        }
+
+        public string GetSpeaker()
         {
             return _speakerName;
         }
+
         public int GetCapacity()
         {
-            return _speakerCapacity;
+            return _capacity;
+        }
+
+        public void PrintEventDetail(Boolean standard)
+        {
+            if (standard)
+            {
+                PrintStandardDescrition();
+            }
+            else
+            {
+                PrintShortDescription();
+            }
+            StringBuilder text = new StringBuilder();
+            text.AppendLine($"Speaker Name: {_speakerName}");
+            text.AppendLine($"Place Capacity: {_capacity}");
+            Console.Write(text.ToString());
         }
     }
-        
 
-    
 }

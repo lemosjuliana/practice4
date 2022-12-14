@@ -1,3 +1,4 @@
+using System.Text;
 namespace Practice2
 {
     public class Address
@@ -22,7 +23,12 @@ namespace Practice2
 
         public string GetAddress()
         {
-            return $"Address: {_streetAddress} City: {_city} State: {_stateOrProvince} Country: {_country}" + Environment.NewLine; 
+            StringBuilder label = new StringBuilder();
+            label.AppendLine($"Address: {_streetAddress}");
+            label.AppendLine($"City: {_city}");
+            label.AppendLine($"State: {_stateOrProvince}");
+            label.AppendLine($"Country: {_country}");
+            return label.ToString(); 
         }
 
         public bool IsLocationUsa()

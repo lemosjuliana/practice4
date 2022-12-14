@@ -44,7 +44,7 @@ namespace Practice1
             return _length;
         }
 
-           public void AddCommment(Comment comment)
+           public void AddComment(Comment comment)
         {
             _comments.Add(comment);
         }

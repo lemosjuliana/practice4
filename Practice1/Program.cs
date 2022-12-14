@@ -33,9 +33,6 @@ namespace Practice1
             _videos.Add(video2);
             _videos.Add(video3);
 
-            // interar pela lista
-            // retorna um video
-
             Console.WriteLine("***************** AVAILABLE VIDEOS **********************");
             foreach (var video in _videos)
             {
@@ -46,11 +43,6 @@ namespace Practice1
                     Console.WriteLine("Author: " + comment.GetNameComment() + " Comment: " + comment.GetTextComment());
                 }
             }
-
-            // foreach (Video video in _videos)
-            // {
-
-            // }
 
         }
     }

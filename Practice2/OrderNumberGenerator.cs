@@ -11,7 +11,7 @@ namespace Practice2
 
         public static int NewOrderNumber()
         {
-            return _orderNumber++;
+            return ++_orderNumber;
         }
 
     }

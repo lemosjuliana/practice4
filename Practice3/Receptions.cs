@@ -1,4 +1,6 @@
 using System;
+using System.Text;
+
 namespace Practice3
 {
     public class Receptions: Event
@@ -8,11 +10,7 @@ namespace Practice3
 
         public Receptions()
         {
-
-        }
-        public ReceptionsPrint()
-        {
-            return $"{title()} {description()} {date()} {time()} {address()}";
+            SetEventType("RECEPTIONS");
         }
 
         public void SetEmail(string email)
@@ -28,10 +26,25 @@ namespace Practice3
         {
             return _email;
         }
+        
         public int GetRegistered()
         {
             return _registered;
         }
+   
+        public void PrintEventDetail(Boolean standard)
+        {
+            if (standard)
+            {
+                PrintStandardDescrition();
+            }
+            else
+            {
+                PrintShortDescription();
+            }
+            Console.Write($"Atendee E-mail: {_email}");
+        }
+
     }
         
 

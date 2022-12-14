@@ -19,32 +19,25 @@ namespace Practice2
             Product headphones = new Product("headphones", "hea004", 40.00, 2);
 
             // Orders
-            Order order1 = new Order(peter, new Address("221 B Baker Street", "London", "UK", "England")); 
+            Order order1 = new Order(peter); 
             order1.AddProduct(mirror);           
             order1.AddProduct(chair);                     
 
-            orderList.Add(order1);
-            orderList.Add(order2);
+            Order order2 = new Order(lucy); 
+            order2.AddProduct(mirror);           
+            order2.AddProduct(chair);                     
+
+            // 
+            orders.Add(order1);
+            orders.Add(order2);
 
             foreach (Order order in orders)
             {
-                Address orderAddress = order.Address();
-                if (orderAddress.USA() == true)
-                {
-                    order.AddOrder(usaOrder);
-                }
-                else
-                {
-                    order.AddOrder(intOrder);
-                }
-
-                string thisPackingLabel = order.PackingLabel();
-                Console.WriteLine(thisPackingLabel);
+                Console.WriteLine(order.PackingLabel());
                 Console.WriteLine();
-
-                string thisShippingLabel = order.ShippingLabel();
-                Console.WriteLine(thisShippingLabel);
+                Console.WriteLine(order.ShippingLabel());
                 Console.WriteLine();
+            }
 
         }
     }

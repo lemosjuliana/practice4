@@ -1,4 +1,6 @@
 using System;
+using System.Text;
+
 namespace Practice3
 {
     public class Event
@@ -7,72 +9,89 @@ namespace Practice3
         private string _description;
         private DateOnly _date;
         private TimeOnly _time;
-        private string _address;
-        private string _eventType;  
-    
-    public Event(string title, string description, DateOnly date, TimeOnly time, string address, string eventType)
-    {
-        _title = title;
-        _description = description;
-        _date = date;
-        _time = time;
-        _address = address;
-        _eventType = eventType;
-    }
+        private Address _address;
+        private string _eventType;
 
-       public void SetTitle(string title)
+        public string GetTitle()
         {
-            _eventTitle = title;
+            return _title;
         }
+
+        public void SetTitle(string title)
+        {
+            _title = title;
+        }
+
+        public string GetDescription()
+        {
+            return _description;
+        }
+
         public void SetDescription(string description)
         {
             _description = description;
         }
+
+        public DateOnly GetDate()
+        {
+            return _date;
+        }
+
         public void SetDate(DateOnly date)
         {
             _date = date;
         }
+
+        public TimeOnly GetTime()
+        {
+            return _time;
+        }
+
         public void SetTime(TimeOnly time)
         {
             _time = time;
         }
-        public void SetAddress(string address)
+
+        public Address GetAddress()
+        {
+            return _address;
+        }
+        
+        public void SetAddress(Address address)
         {
             _address = address;
         }
 
-        public string eventType()
+        public string GetEventType()
         {
-             switch(this.GetType().ToString())
-            {
-                case "Practice3.Lectures" :
-                    _eventType = "Lectures";
-                    break;                
-                case "Practice3.Receptions" :
-                    _eventType = "Receptions";
-                    break;
-                case "Practice3.Outdoors" :
-                    _eventType = "Outdoors";
-                    break;
-                default:
-                    _eventType = "Event";
-                    break;
-            }
-
-            return _myType;
+            return _eventType;
         }
 
-        public string ShortDescription()
+        protected void SetEventType(string eventType)
         {
-            return $"{title()} {date()} ({eventType()})";
+            _eventType = eventType;
         }
 
-        public string StandardDetails()
+        public void PrintShortDescription()
         {
-            return $"{title()} {description()} {date()} {time()} {address()}";
+            StringBuilder text = new StringBuilder();
+            text.AppendLine($"Title: {_title}");
+            text.AppendLine($"Event Type: {_eventType}");
+            text.Append($"Date: {_date}");
+            Console.WriteLine(text.ToString());
         }
 
+        public void PrintStandardDescrition()
+        {
+            StringBuilder text = new StringBuilder();
+            text.AppendLine($"Title: {_title}");
+            text.AppendLine($"Description: {_description}");
+            text.AppendLine($"Date/Time: {_date} {_time}");
+            text.Append($"{_address.GetAddress()}");
+            Console.WriteLine(text.ToString());
         }
 
     }
-    
+
+}
+
